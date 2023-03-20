@@ -1,21 +1,24 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { NavLink } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
-
-const NavigationBar = () => {
+const NavBar = () => {
+    const setActive = ({isActive}) => (isActive ? "active" : "inactive");
     return (
-        <Navbar bg="dark" variant="dark">
-            <Container>
-            <Navbar.Brand href="#home">PokeApiApp</Navbar.Brand>
-            <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Pokemones</Nav.Link>
-            </Nav>
+    <div className="bg-warning d-flex align-items-center p-1">
+            <img className="ms-5" src="https://i.pinimg.com/originals/60/0e/17/600e1767f264672423b477944ec96a49.png" width="40px"/>
+            <Container className="d-flex justify-content-end">
+                <NavLink className={setActive} to="/">
+                    Home
+                </NavLink>
+                <NavLink className={setActive} to="/pokemones/">
+                    Pokemones
+                </NavLink>
             </Container>
-        </Navbar>
+            
+            
+    </div>
     );
 };
 
 
-export default NavigationBar
+export default NavBar;
